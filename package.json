@@ -1,0 +1,23 @@
+{
+  "name": "studio-direct-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A custom MCP server that drives Roblox Studio directly over its local websocket interface.",
+  "type": "module",
+  "bin": {
+    "studio-direct-mcp": "./src/server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "check": "node --check src/server.mjs && node --check src/bridge.mjs && node --check src/protocol.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "ci": "npm run check && npm test"
+  },
+  "dependencies": {
+    "ws": "^8.22.1"
+  }
+}
